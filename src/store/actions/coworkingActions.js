@@ -2,12 +2,12 @@ import axios from 'axios'
 import { coworkingSlice } from './../reducers/coworkingSlice';
 
 export const getCoworking = () => async dispatch => {
-    await axios.get(`http://127.0.0.1:8000/api/coworking/?limit=1000`)
+    await axios.get(`https://amaralxrd.pythonanywhere.com/api/coworking/?limit=1000`)
         .then((res) => dispatch(coworkingSlice.actions.setCoworkings(res.data.results)))
 }
 
 export const createCoworking = (coworking) => async (dispatch) => {
-    await axios.post('http://127.0.0.1:8000/api/coworking/', coworking, {
+    await axios.post('http://amaralxrd.pythonanywhere.com/api/coworking/', coworking, {
         headers: {
             "Content-type": "application/json"
         }
@@ -18,7 +18,7 @@ export const createCoworking = (coworking) => async (dispatch) => {
 
 export const editCoworking = (coworking, id) => async (dispatch) => {
 
-    await axios.put(`http://127.0.0.1:8000/api/coworking/${id}/`, coworking, {
+    await axios.put(`http://amaralxrd.pythonanywhere.com/api/coworking/${id}/`, coworking, {
         headers: {
             "Content-type": "application/json"
         }
@@ -27,7 +27,7 @@ export const editCoworking = (coworking, id) => async (dispatch) => {
 }
 
 export const deleteCoworking = (id) => async (dispatch) => {
-    await axios.delete(`http://127.0.0.1:8000/api/coworking/${id}/`)
+    await axios.delete(`http://amaralxrd.pythonanywhere.com/api/coworking/${id}/`)
         .then(res => dispatch(coworkingSlice.actions.deleteCoworking(id)))
 }
 
