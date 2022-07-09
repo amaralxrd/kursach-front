@@ -7,7 +7,7 @@ export const getCoworking = () => async dispatch => {
 }
 
 export const createCoworking = (coworking) => async (dispatch) => {
-    await axios.post('http://amaralxrd.pythonanywhere.com/api/coworking/', coworking, {
+    await axios.post('https://amaralxrd.pythonanywhere.com/api/coworking/', coworking, {
         headers: {
             "Content-type": "application/json"
         }
@@ -18,7 +18,7 @@ export const createCoworking = (coworking) => async (dispatch) => {
 
 export const editCoworking = (coworking, id) => async (dispatch) => {
 
-    await axios.put(`http://amaralxrd.pythonanywhere.com/api/coworking/${id}/`, coworking, {
+    await axios.put(`https://amaralxrd.pythonanywhere.com/api/coworking/${id}/`, coworking, {
         headers: {
             "Content-type": "application/json"
         }
@@ -27,7 +27,7 @@ export const editCoworking = (coworking, id) => async (dispatch) => {
 }
 
 export const deleteCoworking = (id) => async (dispatch) => {
-    await axios.delete(`http://amaralxrd.pythonanywhere.com/api/coworking/${id}/`)
+    await axios.delete(`https://amaralxrd.pythonanywhere.com/api/coworking/${id}/`)
         .then(res => dispatch(coworkingSlice.actions.deleteCoworking(id)))
 }
 
